@@ -5,6 +5,81 @@
     <title>菜鸟教程</title>
 </head>
 <body>
-<p>{{ name }}</p>
+<p>{{ views_name }}</p>
+<p>{{ views_list }}</p>
+<p>{{ views_dict }}</p>
+<p>{{ views_dict.name }}</p>
+<p>{{ views_default_name|default:'教程default' }}</p>
+<p>{{ views_name|length }}</p>
+<p>{{ views_number }}</p>
+<p>{{ views_date_now }}</p>
+<p>{{ views_str }}</p>
+<p>{{ views_url|safe }}</p>
+<p>
+    {% for i in views_list %}
+        >{{ i }}
+    {% endfor %}
+</p>
+<p>
+    if标签 :
+    {% if views_number > 1500 and views_number <= 2000 %}
+    优秀
+    {% elif views_number > 700 and views_number <= 1500 %}
+    合格
+    {% else %}
+    fuk that
+    {% endif %}
+</p>
+<p>
+    for标签 :
+    {% for i in views_list %}
+        >>{{ i }}
+    {% endfor %}
+</p>
+<p>
+    for标签反序 :
+    {% for i in views_list  reversed %}
+        >>{{ i }}
+    {% endfor %}
+</p>
+<p>
+    遍历字典 :
+    {% for i,j in views_dict.items %}
+        {{ i }}---{{ j }}
+    {% endfor %}
+</p>
+<p>
+<!--    forloop.counter: 顺序获取循环序号，从 1 开始计算-->
+<!--    forloop.counter0: 顺序获取循环序号，从 0 开始计算-->
+<!--    forloop.revcounter: 倒叙获取循环序号，结尾序号为 1-->
+<!--    forloop.revcounter0: 倒叙获取循环序号，结尾序号为 0-->
+<!--    forloop.first（一般配合if标签使用）: 第一条数据返回 True，其他数据返回 False-->
+<!--    forloop.last（一般配合if标签使用）: 最后一条数据返回 True，其他数据返回 False-->
+    {% for i in views_list %}
+        {{ forloop.counter }}
+        {{ forloop.counter0 }}
+        {{ forloop.revcounter }}
+        {{ forloop.revcounter0 }}
+        {{ forloop.first }}
+        {{ forloop.last }}
+    {% endfor %}
+</p>
+<p>
+
+    {% for i in views_list_empty %}
+        {{ forloop.counter0 }}
+    {% empty %}
+        空空如也～
+    {% endfor %}
+</p>
+<p>
+    注释标签
+    {# 这是一个注释#}
+</p>
+<p>
+    {% load static %}
+    {{ views_name }}<img src='{% static "images/logo.jpg" %}' alt="logo">
+</p>
+
 </body>
 </html>

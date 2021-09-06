@@ -8,13 +8,6 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/app01</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="postgres@localhost" uuid="7385164e-76e7-4b58-8dd3-854f5943b164">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="django@localhost [HelloWorld]" uuid="065131d0-9f24-4503-b8c0-87adc62337d2">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

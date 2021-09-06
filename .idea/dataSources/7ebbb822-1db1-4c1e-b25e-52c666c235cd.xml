@@ -227,7 +227,7 @@ false America/Rio_Branco
 false America/Rosario
 true America/Santa_Isabel
 false America/Santarem
-false America/Santiago
+true America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
 true America/Scoresbysund
@@ -425,7 +425,7 @@ false CHAST
 false CHUT
 false CKT
 true CLST
-false CLT
+true CLT
 false COT
 false CST
 true CST6CDT
@@ -438,13 +438,13 @@ true Canada/Newfoundland
 true Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
-false Chile/Continental
-false Chile/EasterIsland
+true Chile/Continental
+true Chile/EasterIsland
 true Cuba
 false DAVT
 false DDUT
-false EASST
-false EAST
+true EASST
+true EAST
 false EAT
 true EDT
 true EEST
@@ -680,7 +680,7 @@ false Pacific/Auckland
 false Pacific/Bougainville
 false Pacific/Chatham
 false Pacific/Chuuk
-false Pacific/Easter
+true Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
@@ -794,7 +794,7 @@ true posixrules
     <database id="3" parent="1" name="app01">
       <ObjectId>16831</ObjectId>
       <Owner>django</Owner>
-      <IntrospectionStateNumber>761</IntrospectionStateNumber>
+      <IntrospectionStateNumber>772</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16832|16834|1
 sequence|table|16843|16845|1

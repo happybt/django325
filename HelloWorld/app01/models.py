@@ -59,3 +59,30 @@ class AuthorDetail(models.Model):
     tel = models.CharField(max_length=32)
     addr = models.CharField(max_length=64)
     birthday = models.DateField()
+
+
+"""
+分组查询（annotate）模型
+"""
+
+
+class Emp(models.Model):
+    name = models.CharField(max_length=32)
+    age = models.IntegerField()
+    salary = models.DecimalField(max_digits=8, decimal_places=2)
+    dep = models.CharField(max_length=32)
+    province = models.CharField(max_length=32)
+
+
+class Emps(models.Model):
+    name = models.CharField(max_length=32)
+    age = models.IntegerField()
+    salary = models.DecimalField(max_digits=8, decimal_places=2)
+    dep = models.ForeignKey('Dep', on_delete=models.CASCADE)
+    province = models.CharField(max_length=32)
+
+
+class Dep(models.Model):
+    title = models.CharField(max_length=32)
+
+

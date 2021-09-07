@@ -1,11 +1,15 @@
 from django.shortcuts import render, HttpResponse
 from . import models
+from django.db.models import Avg, Max, Min, Count, Sum, F, Q
+from django.shortcuts import render, HttpResponse
+from .MyForms import EmpForm
+from django.core.exceptions import ValidationError
 
 
 # Create your views here.
 def add_book(request):
     """
-
+    单表实例
     :param request:
     :return:
     """
@@ -240,11 +244,11 @@ def add_book(request):
 
 
 def add_note(request):
-    '''
-
+    """
+    多表实例
     :param request:
     :return:
-    '''
+    """
 
     """
     ORM - 添加数据
@@ -497,3 +501,181 @@ def add_note(request):
     res = models.AuthorDetail.objects.filter(author__name="任我行").values_list("tel")
 
     return HttpResponse(res)
+
+
+def add_aggregate(request):
+    """
+    Django ORM – 多表实例（聚合与分组查询）
+    聚合查询（aggregate）
+        聚合查询函数是对一组值执行计算，并返回单个值。
+        Django 使用聚合查询前要先从 django.db.models 引入 Avg、Max、Min、Count、Sum（首字母大写）。
+        from django.db.models import Avg,Max,Min,Count,Sum  #   引入函数
+
+    聚合查询返回值的数据类型是字典。
+    聚合函数 aggregate() 是 QuerySet 的一个终止子句， 生成的一个汇总值，相当于 count()。
+    使用 aggregate() 后，数据类型就变为字典，不能再使用 QuerySet 数据类型的一些 API 了。
+    日期数据类型(DateField)可以用 Max 和 Min。
+    返回的字典中：键的名称默认是（属性名称加上__聚合函数名），值是计算出来的聚合值。
+    如果要自定义返回字典的键的名称，可以起别名：
+    aggregate(别名 = 聚合函数名("属性名称"))
+
+    :param request:
+    :return:
+    """
+    """
+    计算所有图书的平均价格
+    """
+    res = models.Note.objects.aggregate(Avg('price'))
+
+    """
+    计算所有图书的数量、最贵价格和最便宜价格:
+    """
+    res = models.Note.objects.aggregate(c=Count('id'), max=Max('price'), min=Min('price'))
+
+    print(res, type(res))
+
+    return HttpResponse(res)
+
+
+def add_annotate(request):
+    """
+    分组查询（annotate）
+        分组查询一般会用到聚合函数，所以使用前要先从 django.db.models 引入 Avg,Max,Min,Count,Sum（首字母大写）。
+        from django.db.models import Avg,Max,Min,Count,Sum  #   引入函数
+
+    返回值：
+        分组后，用 values 取值，则返回值是 QuerySet 数据类型里面为一个个字典；
+        分组后，用 values_list 取值，则返回值是 QuerySet 数据类型里面为一个个元组。
+        MySQL 中的 limit 相当于 ORM 中的 QuerySet 数据类型的切片。
+
+    注意：
+        annotate 里面放聚合函数。
+        values 或者 values_list 放在 annotate 前面：
+            values 或者 values_list 是声明以什么字段分组，annotate 执行分组。
+        values 或者 values_list 放在annotate后面：
+            annotate 表示直接以当前表的pk执行分组，values 或者 values_list 表示查询哪些字段，
+            并且要将 annotate 里的聚合函数起别名，在 values 或者 values_list 里写其别名。
+
+    :param request:
+    :return:
+    """
+
+    """
+    统计每一个出版社的最便宜的书的价格：
+    """
+    res = models.Publish.objects.values('name').annotate(in_price=Min('note__price'))
+    # res = models.Publish.objects.values('name')
+
+    """
+    统计每一本书的作者个数：
+    """
+    res = models.Note.objects.annotate(c=Count('authors__name')).values('title', 'c')
+
+    """
+    统计每一本以"菜"开头的书籍的作者个数：
+    """
+    res = models.Note.objects.filter(title__startswith='菜').annotate(c=Count('authors__name')).values('title', 'c')
+
+    """
+    统计不止一个作者的图书名称：
+    """
+    res = models.Note.objects.annotate(c=Count('authors__name')).filter(c__gt=0).values('title', 'c')
+
+    """
+    根据一本图书作者数量的多少对查询集 QuerySet 进行降序排序:
+    """
+    res = models.Note.objects.annotate(c=Count('authors__name')).order_by('-c').values('title', 'c')
+
+    """
+    查询各个作者出的书的总价格:
+    """
+    res = models.Author.objects.annotate(all=Sum('note__price')).values('name', 'all')
+
+    return HttpResponse(res)
+
+
+def add_FQ(request):
+    """
+    F() 查询
+        F() 的实例可以在查询中引用字段，来比较同一个 model 实例中两个不同字段的值。
+        之前构造的过滤器都只是将字段值与某个常量做比较，如果想要对两个字段的值做比较，就需要用到 F()。
+    使用前要先从 django.db.models 引入 F:
+    from django.db.models import F
+    用法：
+        F("字段名称")
+        F 动态获取对象字段的值，可以进行运算。
+        Django 支持 F() 对象之间以及 F() 对象和常数之间的加减乘除和取余的操作。
+        修改操作（update）也可以使用 F() 函数。
+
+    Q() 查询
+        使用前要先从 django.db.models 引入 Q:
+        from django.db.models import Q
+    用法：
+        Q(条件判断)
+    例如：
+    Q(title__startswith="菜")
+        之前构造的过滤器里的多个条件的关系都是 and，如果需要执行更复杂的查询（例如 or 语句），就可以使用 Q 。
+        Q 对象可以使用 & | ~ （与 或 非）操作符进行组合。
+    优先级从高到低：~ & |。
+    可以混合使用 Q 对象和关键字参数，Q 对象和关键字参数是用"and"拼在一起的（即将逗号看成 and ），
+    但是 Q 对象必须位于所有关键字参数的前面。
+
+
+    :param request:
+    :return:
+    """
+
+    """
+    F() : 查询工资大于年龄的人：
+    """
+    res = models.Emp.objects.filter(salary__gt=F('age')).values('name', 'age')
+
+    """
+    F() : 将每一本书的价格提高100元:
+    """
+    # numeric field overflow
+    # DETAIL:  A field with precision 5, scale 2 must round to an absolute value less than 10^3.
+    # res = models.Note.objects.update(price=F('price')+100)
+
+    """
+    Q() :查询价格大于 350 或者名称以菜开头的书籍的名称和价格。
+    """
+    res = models.Note.objects.filter(Q(price__gt=350) | Q(title__startswith='菜')).values('title', 'price')
+
+    """
+    Q() :查询以"菜"结尾或者不是 2010 年 10 月份的书籍:
+    """
+    res = models.Note.objects.filter(
+        Q(title__endswith='菜') | ~Q(Q(pub_date__year=2010) & Q(pub_date__month=10))).values('title')
+
+    """
+    查询出版日期是 2004 或者 1999 年，并且书名中包含有"菜"的书籍。
+    Q 对象和关键字混合使用，Q 对象要在所有关键字的前面:
+    """
+    res = models.Note.objects.filter(Q(Q(pub_date__year=2004) | Q(pub_date__year=1999)), title__contains='菜').values(
+        'title')
+
+    return HttpResponse(res)
+
+
+def add_emp(request):
+    if request.method == 'GET':
+        form = EmpForm()
+        return render(request, '../templates/add_emp.html', {'form': form})
+    else:
+        form = EmpForm(request.POST)
+        if form.is_valid():  # 进行数据校验
+            # 校验成功
+            data = form.cleaned_data  # 校验成功的值，会放在cleaned_data里。
+            data.pop('r_salary')
+            print(data)
+
+            models.Emp.objects.create(**data)
+            return HttpResponse('ok')
+            # return render(request, 'add_emp.html', {'form': form})
+        else:
+            # 校验失败
+            print(form.errors)  # 打印错误信息
+            clean_errors = form.errors.get('__all__')
+            print(222, clean_errors)
+        return render(request, '../templates/add_emp.html', {'form': form, 'clean_errors': clean_errors})

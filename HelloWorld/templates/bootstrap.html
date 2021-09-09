@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--width=device-width 表示宽度是设备屏幕的宽度。
+    initial-scale=1 表示初始的缩放比例。
+    shrink-to-fit=no 自动适应手机屏幕的宽度。-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap实例</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid text-center">
+    <!--   Bootstrap4 Jumbotron
+    Jumbotron（超大屏幕）会创建一个大的灰色背景框，里面可以设置一些特殊的内容和信息。
+
+    提示: Jumbotron 里头可以放一些 HTML标签，也可以是 Bootstrap 的元素。
+    可以通过在 <div> 元素 中添加 .jumbotron 类来创建 jumbotron:
+    全屏幕的 Jumbotron
+    如果你想创建一个没有圆角的全屏幕，可以在 .jumbotron-fluid 类里头的 div添加 .container 或 .container-fluid 类来实现:
+    -->
+    <div class="container">
+        <h1>我的第一个 Bootstrap 页面</h1>
+        <p>使用了 .container-fluid，100% 宽度，占据全部视口（viewport）的容器。</p>
+        <p>重置浏览器大小查看效果!</p>
+    </div>
+
+</div>
+
+<div class="container">
+    <!--
+    Bootstrap4 网格系统
+        Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，
+        随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多 12 列。
+        Bootstrap 4 的网格系统是响应式的，列会根据屏幕大小自动重新排列。
+    网格类
+    Bootstrap 4 网格系统有以下 5 个类:
+        .col- 针对所有设备
+        .col-sm- 平板 - 屏幕宽度等于或大于 576px
+        .col-md- 桌面显示器 - 屏幕宽度等于或大于 768px)
+        .col-lg- 大桌面显示器 - 屏幕宽度等于或大于 992px)
+        .col-xl- 超大桌面显示器 - 屏幕宽度等于或大于 1200px
+    网格系统规则
+    Bootstrap4 网格系统规则:
+    1.网格每一行需要放在设置了 .container (固定宽度) 或 .container-fluid (全屏宽度) 类的容器中，
+        这样就可以自动设置一些外边距与内边距。
+    2.使用行来创建水平的列组。
+    3.内容需要放置在列中，并且只有列可以是行的直接子节点。
+    4.预定义的类如 .row 和 .col-sm-4 可用于快速制作网格布局。
+    5.列通过填充创建列内容之间的间隙。 这个间隙是通过 .rows 类上的负边距设置第一行和最后一列的偏移。
+    6.网格列是通过跨越指定的 12 个列来创建。 例如，设置三个相等的列，需要使用三个 .col-sm-4 来设置。
+    7.Bootstrap 3 和 Bootstrap 4 最大的区别在于 Bootstrap 4 现在使用 flexbox（弹性盒子） 而不是浮动。
+        Flexbox 的一大优势是，没有指定宽度的网格列将自动设置为等宽与等高列 。
+        如果您想了解有关Flexbox的更多信息，可以阅读我们的CSS Flexbox教程。
+    -->
+
+    <!-- 第一个例子：控制列的宽度及在不同的设备上如何显示 -->
+    <div class="row">
+        <div class="col-*-*"></div>
+    </div>
+    <div class="row">
+        <div class="col-*-*"></div>
+        <div class="col-*-*"></div>
+        <div class="col-*-*"></div>
+        <!--
+        创建一行(<div class="row">)。然后， 添加需要的列( .col-*-* 类中设置)。
+        第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl,
+        第二个星号 (*) 表示一个数字, 同一行的数字相加为 12。
+        -->
+    </div>
+
+    <!-- 第二个例子：或让 Bootstrap 者自动处理布局 -->
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <!--
+        不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等：
+        两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，
+        四个 "col"每个就为 25% 的宽度，以此类推。
+        同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+        -->
+    </div>
+
+    <!--创建相等宽度的列，Bootstrap 自动布局-->
+    <div class="row">
+        <div class="col">.col</div>
+        <div class="col">.col</div>
+        <div class="col">.col</div>
+    </div>
+
+    <div class="row">
+        <!--
+        等宽响应式列
+        以下实例演示了如何在平板及更大屏幕上创建等宽度的响应式列。
+        在移动设备上，即屏幕宽度小于 576px 时，四个列将会上下堆叠排版:
+        -->
+        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3">.col-sm-3</div>
+    </div>
+
+    <div class="row">
+        <!--
+        不等宽响应式列
+        以下实例演示了在平板及更大屏幕上创建不等宽度的响应式列。
+        在移动设备上，即屏幕宽度小于 576px 时，两个列将会上下堆叠排版:
+        -->
+        <div class="col-sm-4">.col-sm-4</div>
+        <div class="col-sm-8">.col-sm-8</div>
+    </div>
+    <div class="row">
+        <!--        偏移列
+        偏移列通过 offset-*-* 类来设置。第一个星号( * )可以是 sm、md、lg、xl，
+        表示屏幕设备类型，第二个星号( * )可以是 1 到 11 的数字。
+        为了在大屏幕显示器上使用偏移，请使用 .offset-md-* 类。
+        这些类会把一个列的左外边距（margin）增加 * 列，其中 * 范围是从 1 到 11。
+        例如：.offset-md-4 是把.col-md-4 往右移了四列格。
+        -->
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>第一列</h3>
+            <p>菜鸟教程</p>
+            <p>学的不仅是技术，更是梦想！！！</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>第二列</h3>
+            <p>菜鸟教程..</p>
+            <p>学的不仅是技术，更是梦想！！！</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>第三列</h3>
+            <p>菜鸟教程..</p>
+            <p>学的不仅是技术，更是梦想！！！</p>
+        </div>
+
+    </div>
+
+    <!--        Bootstrap4 文字排版
+    Bootstrap 4 默认设置
+    Bootstrap 4 默认的 font-size 为 16px, line-height 为 1.5。
+    默认的 font-family 为 "Helvetica Neue", Helvetica, Arial, sans-serif。
+    此外，所有的 <p> 元素 margin-top: 0 、 margin-bottom: 1rem (16px)
+    <h1> - <h6>
+    Bootstrap 中定义了所有的 HTML 标题（h1 到 h6）的样式。
+    -->
+    <h1>h1 Bootstrap 标题 (2.5rem = 40px)</h1>
+    <h2>h2 Bootstrap 标题 (2rem = 32px)</h2>
+    <h3>h3 Bootstrap 标题 (1.75rem = 28px)</h3>
+    <h4>h4 Bootstrap 标题 (1.5rem = 24px)</h4>
+    <h5>h5 Bootstrap 标题 (1.25rem = 20px)</h5>
+    <h6>h6 Bootstrap 标题 (1rem = 16px)</h6>
+
+    <!--    Display 标题类
+    Bootstrap 还提供了四个 Display 类来控制标题的样式:
+    .display-1, .display-2, .display-3, .display-4。
+    -->
+    <h1>Display 标题</h1>
+    <p>Display 标题可以输出更大更粗的字体样式。</p>
+    <h1 class="display-1">Display 1</h1>
+    <h1 class="display-2">Display 2</h1>
+    <h1 class="display-3">Display 3</h1>
+    <h1 class="display-4">Display 4</h1>
+
+    <!--    <small>
+    在 Bootstrap 4 中 HTML <small> 元素用于创建字号更小的颜色更浅的文本:
+    -->
+    <h1>更小文本标题</h1>
+    <h2>代表指定意义的文本颜色</h2>
+    <p class="text-muted">small 元素用于字号更小的颜色更浅的文本:</p>
+    <h1>h1 标题 <small>副标题</small></h1>
+    <h2>h2 标题 <small>副标题</small></h2>
+    <h3>h3 标题 <small>副标题</small></h3>
+    <h4>h4 标题 <small>副标题</small></h4>
+    <h5>h5 标题 <small>副标题</small></h5>
+    <h6>h6 标题 <small>副标题</small></h6>
+
+    <!--    <mark>
+    Bootstrap 4 定义 <mark> 为黄色背景及有一定的内边距:
+    -->
+    <h1>高亮文本</h1>
+    <p>使用 mark 元素来
+        <mark>高亮</mark>
+        文本。
+    </p>
+
+    <!--    <abbr>
+    Bootstrap 4 定义 HTML <abbr> 元素的样式为显示在文本底部的一条虚线边框:
+    -->
+    <h1>Abbreviations</h1>
+    <p>The abbr element is used to mark up an abbreviation or acronym:</p>
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+    <!--    <blockquote>    -->
+    <h1>Blockquotes</h1>
+    <p>The blockquote element is used to present content from another source:</p>
+    <blockquote class="blockquote">
+        <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization,
+            WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5
+            million globally.
+        </p>
+        <footer class="blockquote-footer">From WWF's website</footer>
+    </blockquote>
+
+
+    <!--    <dl>    -->
+    <h1>Description Lists</h1>
+    <p>The dl element indicates a description list:</p>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+
+    <!--    <code>  -->
+    <h1>代码片段</h1>
+    <p>可以将一些代码元素放到 code 元素里面:</p>
+    <p>以下 HTML 元素: <code>span</code>, <code>section</code>, 和 <code>div</code> 用于定义部分文档内容。</p>
+
+    <!--<kbd>-->
+    <h1>Keyboard Inputs</h1>
+    <p>To indicate input that is typically entered via the keyboard, use the kbd element:</p>
+    <p>Use <kbd>ctrl + p</kbd> to open the Print dialog box.</p>
+
+    <!--    <pre>   -->
+    <h1>Multiple Code Lines</h1>
+    <p>For multiple lines of code, use the pre element:</p>
+    <pre>Text in a pre element is displayed in a fixed-width font,and it preserves both spaces and line breaks.</pre>
+
+
+</div>
+
+<div class="container-fluid">
+    <!--    平板和桌面端
+    以下实例演示了在桌面设备的显示器上两个列的宽度各占 50%，
+    如果在平板端则左边的宽度为 25%，右边的宽度为 75%,
+    在移动手机等小型设备上会堆叠显示。
+    -->
+    <div class="row">
+        <div class="col-sm-3 col-md-6">
+            <p>平板和桌面端</p>
+        </div>
+        <div class="col-sm-9 col-md-6">
+            <p>平板和桌面端</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <!--    平板、桌面、大桌面显示器、超大桌面显示器
+    以下实例在平板、桌面、大桌面显示器、超大桌面显示器的宽度比例为分别为：
+    25%/75%、50%/50%、33.33%/66.67%、16.67/83.33%,
+    在移动手机等小型设备上会堆叠显示。
+    -->
+    <div class="row">
+        <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
+            <p>平板、桌面、大桌面显示器、超大桌面显示器</p>
+        </div>
+        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+            <p>平板、桌面、大桌面显示器、超大桌面显示器</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <!--    Bootstrap4 颜色
+    Bootstrap 4 提供了一些有代表意义的颜色类：
+    .text-muted, .text-primary, .text-success, .text-info,
+    .text-warning, .text-danger, .text-secondary,
+    .text-white, .text-dark and .text-light:
+    -->
+    <h2>代表指定意义的文本颜色</h2>
+    <p class="text-muted">柔和的文本。</p>
+    <p class="text-primary">重要的文本。</p>
+    <p class="text-success">执行成功的文本。</p>
+    <p class="text-info">代表一些提示信息的文本。</p>
+    <p class="text-warning">警告文本。</p>
+    <p class="text-danger">危险操作文本。</p>
+    <p class="text-secondary">副标题。</p>
+    <p class="text-dark">深灰色文字。</p>
+    <p class="text-light">浅灰色文本（白色背景上看不清楚）。</p>
+    <p class="text-white">白色文本（白色背景上看不清楚）。</p>
+
+
+    <h2>文本颜色</h2>
+    <p>鼠标移动到链接。</p>
+    <a href="#" class="text-muted">柔和的链接。</a>
+    <a href="#" class="text-primary">主要链接。</a>
+    <a href="#" class="text-success">成功链接。</a>
+    <a href="#" class="text-info">信息文本链接。</a>
+    <a href="#" class="text-warning">警告链接。</a>
+    <a href="#" class="text-danger">危险链接。</a>
+    <a href="#" class="text-secondary">副标题链接。</a>
+    <a href="#" class="text-dark">深灰色链接。</a>
+    <a href="#" class="text-light">浅灰色链接。</a>
+
+    <!--    背景颜色
+    提供背景颜色的类有: .bg-primary, .bg-success, .bg-info, .bg-warning,
+    .bg-danger, .bg-secondary, .bg-dark 和 .bg-light。
+    注意背景颜色不会设置文本的颜色，在一些实例中你需要与 .text-* 类一起使用。
+    -->
+    <h2>背景颜色</h2>
+    <p class="bg-primary text-white">重要的背景颜色。</p>
+    <p class="bg-success text-white">执行成功背景颜色。</p>
+    <p class="bg-info text-white">信息提示背景颜色。</p>
+    <p class="bg-warning text-white">警告背景颜色</p>
+    <p class="bg-danger text-white">危险背景颜色。</p>
+    <p class="bg-secondary text-white">副标题背景颜色。</p>
+    <p class="bg-dark text-white">深灰背景颜色。</p>
+    <p class="bg-light text-dark">浅灰背景颜色。</p>
+
+
+</div>
+
+<div class="container">
+
+
+    <!-- Bootstrap4 表格
+    Bootstrap4 基础表格
+    Bootstrap4 通过 .table 类来设置基础表格的样式
+    -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--    条纹表格
+    通过添加 .table-striped 类，您将在 <tbody> 内的行上看到条纹，如下面的实例所示：
+    -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--    带边框表格
+    .table-bordered 类可以为表格添加边框
+    -->
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--    鼠标悬停状态表格
+    .table-hover 类可以为表格的每一行添加鼠标悬停效果（灰色背景）：
+    -->
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--    黑色背景表格
+    .table-dark 类可以为表格添加黑色背景：
+    -->
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    黑色条纹表格
+    联合使用 .table-dark 和 .table-striped 类可以创建黑色的条纹表格：
+    -->
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    鼠标悬停效果 - 黑色背景表格
+    联合使用 .table-dark 和 .table-hover 类可以设置黑色背景表格的鼠标悬停效果：
+    -->
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    指定意义的颜色类
+    通过指定意义的颜色类可以为表格的行或者单元格设置颜色：
+    -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Default</td>
+            <td>Defaultson</td>
+            <td>def@somemail.com</td>
+        </tr>
+        <tr class="table-primary">
+            <td>Primary</td>
+            <td>Joe</td>
+            <td>joe@example.com</td>
+        </tr>
+        <tr class="table-success">
+            <td>Success</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr class="table-danger">
+            <td>Danger</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr class="table-info">
+            <td>Info</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        <tr class="table-warning">
+            <td>Warning</td>
+            <td>Refs</td>
+            <td>bo@example.com</td>
+        </tr>
+        <tr class="table-active">
+            <td>Active</td>
+            <td>Activeson</td>
+            <td>act@example.com</td>
+        </tr>
+        <tr class="table-secondary">
+            <td>Secondary</td>
+            <td>Secondson</td>
+            <td>sec@example.com</td>
+        </tr>
+        <tr class="table-light">
+            <td>Light</td>
+            <td>Angie</td>
+            <td>angie@example.com</td>
+        </tr>
+        <tr class="table-dark text-dark">
+            <td>Dark</td>
+            <td>Bo</td>
+            <td>bo@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--    下表列出了表格颜色类的说明:
+    类名	描述
+    .table-primary	蓝色: 指定这是一个重要的操作
+    .table-success	绿色: 指定这是一个允许执行的操作
+    .table-danger	红色: 指定这是可以危险的操作
+    .table-info	浅蓝色: 表示内容已变更
+    .table-warning	橘色: 表示需要注意的操作
+    .table-active	灰色: 用于鼠标悬停效果
+    .table-secondary	灰色: 表示内容不怎么重要
+    .table-light	浅灰色，可以是表格行的背景
+    .table-dark	深灰色，可以是表格行的背景
+    -->
+
+    <!--    表头颜色
+    在 Bootstrap v4.0.0-beta.2 中.thead-dark 类用于给表头添加黑色背景， .thead-light 类用于给表头添加灰色背景:
+    在 Bootstrap v4.0.0-beta 这个版本中，.thead-inverse 类用于给表头添加黑色背景，.thead-default 类用于给表头添加灰色背景。
+    -->
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    较小的表格
+    .table-sm 类用于通过减少内边距来设置较小的表格:
+    -->
+    <table class="table table-bordered table-sm">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    响应式表格
+    .table-responsive 类用于创建响应式表格：在屏幕宽度小于 992px 时会创建水平滚动条，
+    如果可视区域宽度大于 992px 则显示不同效果（没有滚动条）:
+    -->
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Sex</th>
+                <th>Example</th>
+                <th>Example</th>
+                <th>Example</th>
+                <th>Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Anna</td>
+                <td>Pitt</td>
+                <td>35</td>
+                <td>New York</td>
+                <td>USA</td>
+                <td>Female</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--
+    可以通过以下类设定在指定屏幕宽度下显示滚动条：
+    类名	屏幕宽度
+    .table-responsive-sm	< 576px
+    .table-responsive-md	< 768px
+    .table-responsive-lg	< 992px
+    .table-responsive-xl	< 1200px
+    -->
+    <div class="table-responsive-sm">
+        <table class="table">
+            ...
+        </table>
+    </div>
+
+</div>
+
+<div class="container">
+    <!--    Bootstrap4 图像形状 -->
+    <!--    圆角图片
+    .rounded 类可以让图片显示圆角效果：-->
+    <img src="logo.jpg" class="img-rounded" alt="Cinque Terre">
+
+    <!--    椭圆图片
+    .rounded-circle 类可以设置椭圆形图片:-->
+    <img src="logo.jpg" class="rounded-circle" alt="Cinque Terre">
+
+    <!--    缩略图
+    .img-thumbnail 类用于设置图片缩略图(图片有边框):-->
+    <img src="logo.jpg" class="img-thumbnail" alt="Cinque Terre">
+
+    <!--    图片对齐方式
+    使用 .float-right 类来设置图片右对齐，使用 .float-left 类设置图片左对齐:-->
+    <img src="logo.jpg" class="float-left" alt="Cinque Terre">
+    <img src="logo.jpg" class="float-right" alt="Cinque Terre">
+    <!--    响应式图片
+    图像有各种各样的尺寸，我们需要根据屏幕的大小自动适应。
+    我们可以通过在 <img> 标签中添加 .img-fluid 类来设置响应式图片。
+    .img-fluid 类设置了 max-width: 100%; 、 height: auto; :-->
+    <img class="img-fluid" src="logo.jpg" alt="Chania">
+
+
+</div>
+
+<div class="container">
+    <!--    Bootstrap4 信息提示框
+提示框可以使用 .alert 类, 后面加上 .alert-success, .alert-info, .alert-warning, .alert-danger, .alert-primary, .alert-secondary, .alert-light 或 .alert-dark 类来实现:
+-->
+    <div class="alert alert-success">
+        <strong>成功!</strong> 指定操作成功提示信息。
+    </div>
+
+    <!--    提示框添加链接
+    提示框中在链接的标签上添加 alert-link 类来设置匹配提示框颜色的链接：-->
+    <div class="alert alert-success">
+        <strong>成功!</strong> 你应该认真阅读 <a href="#" class="alert-link">这条信息</a>。
+    </div>
+
+    <!--    关闭提示框
+我们可以在提示框中的 div 中添加 .alert-dismissible 类，
+然后在关闭按钮的链接上添加 class="close" 和 data-dismiss="alert" 类来设置提示框的关闭操作。
+提示: &times; (×) 是 HTML 实体字符，来表示关闭操作，而不是字母 "x"。-->
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>成功!</strong> 指定操作成功提示信息。
+    </div>
+
+
+    <!--    提示框动画
+.fade 和 .show 类用于设置提示框在关闭时的淡出和淡入效果：-->
+    <div class="alert alert-danger alert-dismissible fade show">
+    </div>
+</div>
+
+
+<div class="container">
+    <!--    Bootstrap4 按钮-->
+    <button type="button" class="btn">基本按钮</button>
+    <button type="button" class="btn btn-primary">主要按钮</button>
+    <button type="button" class="btn btn-secondary">次要按钮</button>
+    <button type="button" class="btn btn-success">成功</button>
+    <button type="button" class="btn btn-info">信息</button>
+    <button type="button" class="btn btn-warning">警告</button>
+    <button type="button" class="btn btn-danger">危险</button>
+    <button type="button" class="btn btn-dark">黑色</button>
+    <button type="button" class="btn btn-light">浅色</button>
+    <button type="button" class="btn btn-link">链接</button>
+
+    <!--    按钮类可用于 <a>, <button>, 或 <input> 元素上:-->
+    <a href="#" class="btn btn-info" role="button">链接按钮</a>
+    <button type="button" class="btn btn-info">按钮</button>
+    <input type="button" class="btn btn-info" value="输入框按钮">
+    <input type="submit" class="btn btn-info" value="提交按钮">
+    <!--    按钮设置边框-->
+    <button type="button" class="btn btn-outline-primary">主要按钮</button>
+    <button type="button" class="btn btn-outline-secondary">次要按钮</button>
+    <button type="button" class="btn btn-outline-success">成功</button>
+    <button type="button" class="btn btn-outline-info">信息</button>
+    <button type="button" class="btn btn-outline-warning">警告</button>
+    <button type="button" class="btn btn-outline-danger">危险</button>
+    <button type="button" class="btn btn-outline-dark">黑色</button>
+    <button type="button" class="btn btn-outline-light text-dark">浅色</button>
+    <!--    不同大小的按钮-->
+    <button type="button" class="btn btn-primary btn-lg">大号按钮</button>
+    <button type="button" class="btn btn-primary">默认按钮</button>
+    <button type="button" class="btn btn-primary btn-sm">小号按钮</button>
+    <!--    块级按钮
+    通过添加 .btn-block 类可以设置块级按钮：-->
+    <button type="button" class="btn btn-primary btn-block">按钮 1</button>
+
+    <!--    激活和禁用的按钮
+    按钮可设置为激活或者禁止点击的状态。
+
+    .active 类可以设置按钮是可用的， disabled 属性可以设置按钮是不可点击的。 注意 <a> 元素不支持 disabled 属性，你可以通过添加 .disabled 类来禁止链接的点击。
+    -->
+    <button type="button" class="btn btn-primary active">点击后的按钮</button>
+    <button type="button" class="btn btn-primary" disabled>禁止点击的按钮</button>
+    <a href="#" class="btn btn-primary disabled">禁止点击的链接</a>
+
+</div>
+
+<div class="container">
+    <!--    Bootstrap4 按钮组-->
+    <!--    Bootstrap 4 中允许我们将按钮放在同一行上。
+    可以在 <div> 元素上添加 .btn-group 类来创建按钮组。
+    -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <button type="button" class="btn btn-primary">Sony</button>
+    </div>
+    <!--提示: 我们可以使用 .btn-group-lg|sm 类来设置按钮组的大小。-->
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <button type="button" class="btn btn-primary">Sony</button>
+    </div>
+
+    <!--    垂直按钮组
+    可以使用 .btn-group-vertical 类来创建垂直的按钮组：-->
+    <div class="btn-group-vertical">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <button type="button" class="btn btn-primary">Sony</button>
+    </div>
+
+    <!--    内嵌按钮组及下拉菜单
+    我们可以在按钮组内设置下拉菜单：-->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Sony
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Tablet</a>
+                <a class="dropdown-item" href="#">Smartphone</a>
+            </div>
+        </div>
+    </div>
+    <!--    拆分按钮下拉菜单-->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Sony</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Tablet</a>
+            <a class="dropdown-item" href="#">Smartphone</a>
+        </div>
+    </div>
+    <!--垂直按钮组及下拉菜单-->
+    <div class="btn-group-vertical">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Sony
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Tablet</a>
+                <a class="dropdown-item" href="#">Smartphone</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <!--   Bootstrap4 徽章（Badges） -->
+    <!--    徽章（Badges）主要用于突出显示新的或未读的项。如需使用徽章，
+    只需要将 .badge 类加上带有指定意义的颜色类 (如 .badge-secondary) 添加到 <span> 元素上即可。
+    徽章可以根据父元素的大小的变化而变化:-->
+    <h1>测试标题 <span class="badge badge-secondary">New</span></h1>
+    <h2>测试标题 <span class="badge badge-secondary">New</span></h2>
+    <h3>测试标题 <span class="badge badge-secondary">New</span></h3>
+    <h4>测试标题 <span class="badge badge-secondary">New</span></h4>
+    <h5>测试标题 <span class="badge badge-secondary">New</span></h5>
+    <h6>测试标题 <span class="badge badge-secondary">New</span></h6>
+
+    <!--    各种颜色类型的徽章-->
+    <span class="badge badge-primary">主要</span>
+    <span class="badge badge-secondary">次要</span>
+    <span class="badge badge-success">成功</span>
+    <span class="badge badge-danger">危险</span>
+    <span class="badge badge-warning">警告</span>
+    <span class="badge badge-info">信息</span>
+    <span class="badge badge-light">浅色</span>
+    <span class="badge badge-dark">深色</span>
+
+    <!--    药丸形状徽章
+    使用 .badge-pill 类来设置药丸形状徽章:-->
+    <span class="badge badge-pill badge-default">默认</span>
+    <span class="badge badge-pill badge-primary">主要</span>
+    <span class="badge badge-pill badge-success">成功</span>
+    <span class="badge badge-pill badge-info">信息</span>
+    <span class="badge badge-pill badge-warning">警告</span>
+    <span class="badge badge-pill badge-danger">危险</span>
+
+    <!--徽章插入到元素内-->
+    <button type="button" class="btn btn-primary">
+        Messages <span class="badge badge-light">4</span>
+    </button>
+
+</div>
+
+<div class="container">
+    <!--Bootstrap4 进度条-->
+    <!--进度条可以显示用户任务的完成过程。
+    创建一个基本的进度条的步骤如下：
+        添加一个带有 .progress 类的 <div>。
+        接着，在上面的 <div> 内，添加一个带有 class .progress-bar 的空的 <div>。
+        添加一个带有百分比表示的宽度的 style 属性，例如 style="width:70%" 表示进度条在 70% 的位置。-->
+    <div class="progress">
+        <div class="progress-bar" style="width:70%"></div>
+    </div>
+
+    <!--    进度条高度
+    进度条高度默认为 16px。我们可以使用 CSS 的 height 属性来修改他：-->
+    <div class="progress" style="height:20px;">
+        <div class="progress-bar" style="width:40%;"></div>
+    </div>
+
+    <!--    进度条标签
+    可以在进度条内添加文本，如进度的百分比-->
+    <div class="progress">
+        <div class="progress-bar" style="width:70%">70%</div>
+    </div>
+
+    <!--    不同颜色的进度条
+    默认情况下进度条为蓝色，Bootstrap4 还提供了以下颜色的进度条：-->
+    <div class="progress">
+        <div class="progress-bar bg-success" style="width:40%"></div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar bg-info" style="width:50%"></div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar bg-warning" style="width:60%"></div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar bg-danger" style="width:70%"></div>
+    </div>
+
+    <!--    条纹的进度条-->
+    <!--可以使用 .progress-bar-striped 类来设置条纹进度条：-->
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" style="width:40%"></div>
+    </div>
+
+    <!--    动画进度条
+    使用 .progress-bar-animated 类可以为进度条添加动画：-->
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%"></div>
+
+    <!--    混合色彩进度条
+    进度条可以设置多种颜色：-->
+    <div class="progress">
+        <div class="progress-bar bg-success" style="width:40%">
+            Free Space
+        </div>
+        <div class="progress-bar bg-warning" style="width:10%">
+            Warning
+        </div>
+        <div class="progress-bar bg-danger" style="width:20%">
+            Danger
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!--Bootstrap4 分页
+    网页开发过程，如果碰到内容过多，一般都会做分页处理。
+    Bootstrap 4 可以很简单的实现分页效果。-->
+    <!--    要创建一个基本的分页可以在 <ul> 元素上添加 .pagination 类。然后在 <li> 元素上添加 .page-item 类：:-->
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
+    <!--    当前页页码状态
+    当前页可以使用 .active 类来高亮显示：-->
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+    <!--    不可点击的分页链接
+    .disabled 类可以设置分页链接不可点击:-->
+    <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
+    <!--    分页显示大小
+    可以将分页条目设置为不同的大小。
+
+    .pagination-lg 类设置大字体的分页条目，.pagination-sm 类设置小字体的分页条目:-->
+    <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
+    <ul class="pagination pagination-sm">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
+    <!--    面包屑导航
+    .breadcrumb 和 .breadcrumb-item 类用于设置面包屑导航：-->
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Photos</a></li>
+        <li class="breadcrumb-item"><a href="#">Summer 2017</a></li>
+        <li class="breadcrumb-item"><a href="#">Italy</a></li>
+        <li class="breadcrumb-item active">Rome</li>
+    </ul>
+</div>
+
+<div class="container">
+
+</div>
+
+<div class="container">
+
+</div>
+
+<div class="container">
+
+</div>
+
+<div class="container">
+
+</div>
+
+<div class="container">
+
+</div>
+
+
+</body>
+</html>

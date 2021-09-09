@@ -10,6 +10,7 @@
 
 <!--1、自己手动写HTML页面-->
 <form action="" method="post">
+     {% csrf_token %}
     <p>姓名：<input type="text" name="name"></p>
     <p>年龄：<input type="text" name="age"></p>
     <p>工资：<input type="text" name="salary"></p>
@@ -17,11 +18,11 @@
 </form>
 
 <!--2、通过form对象的as_p方法实现-->
-<form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit">
-</form>
+<!--<form action="" method="post" novalidate>-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="submit">-->
+<!--</form>-->
 
 <!--3、手动获取form对象的字段-->
 <!--<form action="" method="post" novalidate>-->

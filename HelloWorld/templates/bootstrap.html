@@ -788,7 +788,7 @@
     图像有各种各样的尺寸，我们需要根据屏幕的大小自动适应。
     我们可以通过在 <img> 标签中添加 .img-fluid 类来设置响应式图片。
     .img-fluid 类设置了 max-width: 100%; 、 height: auto; :-->
-    <img class="img-fluid" src="logo.jpg" alt="Chania">
+    <img class="img-fluid" src="logo.jpg" alt="China">
 
 
 </div>
@@ -1105,15 +1105,121 @@
 </div>
 
 <div class="container">
+    <!--Bootstrap4 列表组
+    大部分基础列表组都是无序的。-->
+
+    <!--    要创建列表组，可以在 <ul> 元素上添加 .list-group 类, 在 <li> 元素上添加 .list-group-item 类:-->
+    <!--    激活状态的列表项 : 通过添加 .active 类来设置激活状态的列表项：
+            禁用的列表项 : .disabled 类用于设置禁用的列表项:
+            -->
+    <ul class="list-group">
+        <li class="list-group-item active">First item</li>
+        <li class="list-group-item">Second item</li>
+        <li class="list-group-item disabled">Third item</li>
+    </ul>
+
+    <!--    链接列表项 :
+            要创建一个链接的列表项，可以将 <ul> 替换为 <div> ， <a> 替换 <li>。
+            如果你想鼠标悬停显示灰色背景就添加.list-group-item-action 类:-->
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">First_item</a>
+        <a href="#" class="list-group-item list-group-item-action">Second_item</a>
+        <a href="#" class="list-group-item list-group-item-action">Third_item</a>
+    </div>
+    <!--    多种颜色列表项
+    列表项目的颜色可以通过以下列来设置： .list-group-item-success, list-group-item-secondary, list-group-item-info, list-group-item-warning, .list-group-item-danger, list-group-item-dark 和 list-group-item-light:-->
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-success">success item</li>
+        <li class="list-group-item list-group-item-success">成功列表项</li>
+        <li class="list-group-item list-group-item-secondary">次要列表项</li>
+        <li class="list-group-item list-group-item-info">信息列表项</li>
+        <li class="list-group-item list-group-item-warning">警告列表项</li>
+        <li class="list-group-item list-group-item-danger">危险列表项</li>
+        <li class="list-group-item list-group-item-primary">主要列表项</li>
+        <li class="list-group-item list-group-item-dark">深灰色列表项</li>
+        <li class="list-group-item list-group-item-light">浅色列表项</li>
+    </ul>
+
+    <!--    链接的多种颜色列表项-->
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">激活列表项</a>
+        <a href="#" class="list-group-item list-group-item-success">成功列表项</a>
+        <a href="#" class="list-group-item list-group-item-secondary">次要列表项</a>
+        <a href="#" class="list-group-item list-group-item-info">信息列表项</a>
+        <a href="#" class="list-group-item list-group-item-warning">警告列表项</a>
+        <a href="#" class="list-group-item list-group-item-danger">危险列表项</a>
+        <a href="#" class="list-group-item list-group-item-primary">主要列表项</a>
+        <a href="#" class="list-group-item list-group-item-dark">深灰色列表项</a>
+        <a href="#" class="list-group-item list-group-item-light">浅色列表项</a>
+    </div>
+</div>
+
+<div class="container">
+    <!--Bootstrap4 卡片-->
+    <!--    简单的卡片
+    头部和底部
+    .card-header类用于创建卡片的头部样式， .card-footer 类用于创建卡片的底部样式
+    我们可以通过 Bootstrap4 的 .card 与 .card-body 类来创建一个简单的卡片，实例如下:-->
+    <div class="card">
+        <div class="card-body">简单的卡片</div>
+        <div class="card-header">头部</div>
+        <div class="card-body">内容</div>
+        <div class="card-footer">底部</div>
+    </div>
+    <!--Bootstrap4 卡片
+    我们可以给 <img> 添加 .card-img-top（图片在文字上方）
+    或 .card-img-bottom（图片在文字下方 来设置图片卡片：
+    如果图片要设置为背景，可以使用 .card-img-overlay 类:-->
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src="logo.jpg" alt="Card image">
+        <div class="card-body card-img-overlay">
+            <h4 class="card-title">John Doe</h4>
+            <p class="card-text">Some example text.</p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+    </div>
 
 </div>
 
 <div class="container">
+    <!--Bootstrap4 下拉菜单-->
+    <!--    Bootstrap4 下拉菜单依赖于 popper.min.js。
+    下拉菜单是可切换的，是以列表格式显示链接的上下文菜单。-->
+    <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+            <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+        <!--        实例解析
+        .dropdown 类用来指定一个下拉菜单。
+        我们可以使用一个按钮或链接来打开下拉菜单，
+        按钮或链接需要添加 .dropdown-toggle 和 data-toggle="dropdown" 属性。
+        <div> 元素上添加 .dropdown-menu 类来设置实际下拉菜单，
+        然后在下拉菜单的选项中添加 .dropdown-item 类。
+        我们也可以在 <a> 标签中使用：-->
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+            </a>
 
-</div>
-
-<div class="container">
-
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+        <!--        下拉菜单中的分割线
+        .dropdown-divider 类用于在下拉菜单中创建一个水平的分割线：-->
+        <div class="dropdown-divider"></div>
+        <!--        下拉菜单中的标题
+        .dropdown-header 类用于在下拉菜单中添加标题：-->
+        <div class="dropdown-header">Dropdown header 1</div>
+    </div>
 </div>
 
 <div class="container">

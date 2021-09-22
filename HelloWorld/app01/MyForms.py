@@ -19,7 +19,6 @@ from django import forms
 class EmpForm(forms.Form):
     """
     字段属性：
-
     label：输入框前面的文本信息。
     error_message：自定义显示的错误信息，属性值是字典，
         其中 required 为设置不能为空时显示的错误信息的 key。
